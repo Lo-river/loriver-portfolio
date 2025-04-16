@@ -1,0 +1,25 @@
+# VS Code settings
+.vscode/
+
+# macOS system files
+.DS_Store
+
+# Logs
+*.log
+
+# Node modules (om du någon gång kör npm install)
+node_modules/
+
+# Environment files
+.env
+.env.local
+
+# Dist/build folders (vanligt i t.ex. Vite, Webpack, etc.)
+dist/
+build/
+
+# System trash
+Thumbs.db
+
+# Live Server cache
+*.tmp
