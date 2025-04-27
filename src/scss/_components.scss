@@ -1,0 +1,34 @@
+//Buttons, nav, icons 
+.button {
+    display: inline-block;
+    padding: 0.7em 2em;
+    border-radius: $border-radius;
+    border: none;
+    background: $text;
+    color: $main-bg;
+    font-weight: 600;
+    margin: 0.5em 0;
+    cursor: pointer;
+    transition: background 0.2s;
+    &:hover {
+      background: $primary;
+    }
+  
+    // Desktop, större padding/font
+    @media (min-width: $breakpoint-lg) {
+      padding: 1em 3em;
+      font-size: 1.1rem;
+    }
+  }
+  
+  .buttons-row {
+    margin: 1rem 0;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .social-row {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }

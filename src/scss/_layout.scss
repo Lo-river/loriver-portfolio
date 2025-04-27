@@ -1,0 +1,91 @@
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  background: $main-bg;
+}
+
+
+.header-nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+// text + profile image
+.profile-section {
+  display: flex;
+  flex-direction: column;   // MOBIL först (staplat)
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+// text, buttons, 
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+
+.profile-img {
+  background-image: url('/public/images/lo-portfolio-web.webp');
+  background-size: cover;
+  background-position: center; 
+  width: 200px !important;
+  height: 200px;
+  border-radius: 50%;
+  margin-top: 1rem;
+  box-shadow: 0 0 24px rgba(0,0,0,0.07);
+}
+
+// Desktop & bigger tablets 
+@media (min-width: $breakpoint-lg) {
+  .main-container {
+    flex-direction: column; 
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+  .profile-section {
+    flex-direction: row;      
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+  }
+  .profile-content {
+    align-items: flex-end;   
+    text-align: right;
+  }
+  .profile-img {
+    width: 260px !important;
+    height: 260px;
+    margin-top: 0;
+  }
+}
+
+// horizontal view/tablet 
+@media (min-width: $breakpoint-md) and (max-width: 1024px) and (orientation: landscape) {
+  .profile-section {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+  .profile-content {
+    align-items: flex-end;
+    text-align: right;
+  }
+  .profile-img {
+    width: 180px !important;
+    height: 180px;
+    margin-top: 0;
+  }
+}
