@@ -5,38 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public/css/main.css">
     <script src="index.js" defer></script>
-
     <title>Portfolio</title>
 </head>
 <body>
-    <body>
-        <header>
-            <nav class="header-nav">
+    <header>
+        <div class="theme-toggle">
+            <label>Light
+                <input type="radio" name="theme" value="day" checked onclick="handleClick(this)">
+            </label>
+            <label>Dark
+                <input type="radio" name="theme" value="night" onclick="handleClick(this)">
+            </label>
+        </div>
+        <nav class="header-nav">
             <a href="#">About</a>
             <a href="#">Experience</a>
             <a href="#">Projects</a>
-            <a href="#">Contact</a>
-          </nav>
-        </header>
-        <div class="main-container">
-  
-            <section class="profile-section">
-                <div class="profile-content">
-                  <h1>Lo River Lööf</h1>
-                  <h2>Frontend Developer</h2>
-                  <div class="buttons-row">
-                    <button class="button">Download CV</button>
-                    <button class="button">Contact Me</button>
-                  </div>
-                  <div class="social-row">
-                    <!-- Social ikoner -->
-                  </div>
+            <!-- <a href="#">Contact</a> -->
+        </nav>
+
+
+    </header>
+    <div class="main-container">
+        <section class="profile-section">
+            <div class="profile-content">
+                <h1>Lo River Lööf</h1>
+                <h2>Frontend Developer</h2>
+                <div class="buttons-row">
+
+                   <a href="public/files/test-website.pdf" download="Loriver-CV.pdf"><button class="button">Download CV</button></a>
+                   <a href="mailto:loriverinez.loof@yh.nackademin.se"><button class="button">Contact Me</button></a> 
+                   
+                    
+                    
                 </div>
+                <div class="social-row">
+                    
+                    <a class="linkedin-icon" href="https://linkedin.com/" target="_blank"><img src="/public/icons/linkedin-grey.svg" alt="Linkedin logo" class="icon-img" /></a>
+                    <a class="github-icon" href="https://github.com/" target="_blank"><img src="/public/icons/github-grey.svg" alt="GitHub logo" class="icon-img" /></a>
+                    
+                  
+                </div>
+            </div>
+            <div class="profile-img-bg">
                 <div class="profile-img"></div>
-              </section>
-              
-        </div>
-      </body>
-      
+            </div>
+        </section>
+        <section>
+            <div class="about-me-conatiner">
+                <h3>About me</h3>
+                <p class="p-about-me">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta, vitae, dolore dolorum corrupti, impedit aliquid aliquam voluptas harum accusamus minima ad illum nulla adipisci id! Necessitatibus cum quibusdam architecto et!</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 Lo River Lööf</p>
+    </footer>
 </body>
 </html>
