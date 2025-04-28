@@ -38,7 +38,8 @@
 
 .theme-toggle {
   display: flex;
-  justify-self: flex-end;
+  flex-direction: row;
+  justify-self: flex-end !important;
   gap: 1em;
   // align-items: center;
   margin-top: 2rem;
