@@ -1,13 +1,81 @@
 // Typography, body, reset
+
+:root {
+  --background-color: #e9e9e9;
+  --bg-dark: #212121;
+  --text-dark: #FEFEFE;
+  --text-color: #efefef;
+  // --link-color: lightcoral;
+  --link-color: #b9e702;
+
+  --h1-color: #000000;
+  --h2-color: #444;
+  --h3-color: #000000;
+  --p-color: #4d4d4d;
+  --box-shadow: inset -15px 20px 34px -15px #e8e8e8;
+
+}
+
+body.day {
+  --background-color: #FEFEFE;
+  // --text-color: #222;
+  --text-color: #616161 ;
+  --link-color: rgb(236, 142, 0);
+
+
+}
+
+body.night {
+  --background-color: var(--bg-dark);
+  --text-color: var(--text-dark);
+  --link-color: lightblue;
+
+  // --h1-color: #ffcc00;
+  --h1-color: #ffb700;
+  --h2-color: #00d4ff;
+  --h3-color: #b37cf2;
+  --p-color: #e0e0e0;
+  --box-shadow:none;
+
+}
+
 body {
-    background: $main-bg;
-    color: $text;
-    font-family: 'Inter', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-    font-weight: 600;
-  }
+  background: var(--background-color);
+  color: var(--text-color, #222);
+  font-family: "Inter", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  transition:
+    background 1s cubic-bezier(0.25, 1, 0.5, 1),
+    color 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 600;
+}
+
+h1 {
+  color: var(--h1-color);
+}
+h2 {
+  color: var(--h2-color);
+}
+h3 {
+  color: var(--h3-color);
+}
+p {
+  color: var(--p-color);
+}
+
+a {
+  color: var(--link-color, #f08080);
+  transition: color 200ms;
+  text-decoration:none;
+
+}
+a:hover {
+  // color: #aeff00;
+  color: #b9e702;
+
+}

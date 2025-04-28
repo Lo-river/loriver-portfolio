@@ -1,34 +1,65 @@
-//Buttons, nav, icons 
+// Buttons, nav, icons
+
 .button {
-    display: inline-block;
-    padding: 0.7em 2em;
-    border-radius: $border-radius;
-    border: none;
-    background: $text;
-    color: $main-bg;
-    font-weight: 600;
-    margin: 0.5em 0;
+  display: inline-block;
+  padding: 0.7em 2em !important;
+  border-radius: $border-radius;
+  border: none;
+  // background: $primary-btn-bg;
+  background: #2E2E2E;
+  color: $main-bg;
+  font-size: 16px !important;
+  font-weight: 550;
+  margin: 0.5em 0;
+  cursor: pointer;
+  transition: background 0.2s;
+  &:hover {
+    background: $primary;
+  }
+  // Desktop, större padding/font
+  @media (min-width: $breakpoint-lg) {
+    padding: 1em 3em;
+    font-size: 1.1rem;
+  }
+}
+
+.buttons-row {
+  margin: 1rem 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.social-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+
+.theme-toggle {
+  display: flex;
+  justify-self: flex-end;
+  gap: 1em;
+  // align-items: center;
+  margin-top: 2rem;
+  margin-right: 2em;
+  // background-color: #b9e702;
+
+  label {
+    font-size: 1em;
     cursor: pointer;
-    transition: background 0.2s;
-    &:hover {
-      background: $primary;
-    }
-  
-    // Desktop, större padding/font
-    @media (min-width: $breakpoint-lg) {
-      padding: 1em 3em;
-      font-size: 1.1rem;
+    color: var(--text-color);
+
+    input[type="radio"] {
+      margin-left: 0.3em;
+      accent-color: #222;
     }
   }
-  
-  .buttons-row {
-    margin: 1rem 0;
-    display: flex;
-    gap: 1rem;
-  }
-  
-  .social-row {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-  }
+}
+
+.night .theme-toggle label {
+  color: var(--text-dark);
+}
+.night .theme-toggle input[type="radio"] {
+  accent-color: #ffffff;
+}
