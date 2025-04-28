@@ -185,11 +185,10 @@ footer {
 
 .theme-toggle {
   display: flex;
-  flex-direction: row;
-  justify-self: flex-end !important;
-  gap: 1em;
-  margin-top: 2rem;
-  margin-right: 2em;
+  justify-content: flex-end;
+  width: 85%;
+  padding: 2rem 2rem 0 2rem;
+  gap: 1rem;
 }
 .theme-toggle label {
   font-size: 1em;
