@@ -231,12 +231,13 @@ footer {
 }
 
 button.test-btn {
-  padding: 2rem;
+  padding: 1rem;
   border: solid black 3px;
   border-radius: 6px;
   box-shadow: 4px 5px 1px 0.1px #222;
   color: black !important;
-  min-width: 20%;
+  width: 100%;
+  transition: all 0.09s ease-in-out;
 }
 button.test-btn a {
   color: black;
@@ -245,9 +246,8 @@ button.test-btn a {
 }
 
 button.test-btn:active {
-  width: 2%;
-  height: 100%;
-  padding: 1.98rem;
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 1px 0.5px #222;
 }
 
 .profile-img-bg {
