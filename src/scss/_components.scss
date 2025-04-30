@@ -16,6 +16,14 @@
   &:hover {
     background: $primary;
   }
+
+  &active{
+    
+      width: 2%;
+      height: 100%;
+      padding:1.98rem;
+    
+  }
   // Desktop, större padding/font
   @media (min-width: $breakpoint-lg) {
     padding: 1em 3em;
@@ -84,4 +92,32 @@
 }
 .night .theme-toggle input[type="radio"] {
   accent-color: #ffffff;
+}
+
+
+.test-btn{
+  // padding: 10px;
+  padding: 2rem;
+  border: solid black 3px;
+  border-radius: 6px;
+  box-shadow: 4px 5px 1px 0.1px #222 ;
+  color: black !important;
+  min-width: 20%;
+
+  a{ 
+    color: black;
+    font-size: larger;
+    font-weight: 600;
+  }
+
+
+
+
+}
+
+
+.test-btn:active {
+  width: 2%;
+  height: 100%;
+  padding:1.98rem;
 }
