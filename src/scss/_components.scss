@@ -18,11 +18,9 @@
   }
 
   &active{
-    
       width: 2%;
       height: 100%;
       padding:1.98rem;
-    
   }
   // Desktop, större padding/font
   @media (min-width: $breakpoint-lg) {
@@ -95,7 +93,7 @@
 }
 
 
-.test-btn{
+button.test-btn{
   // padding: 10px;
   padding: 2rem;
   border: solid black 3px;
@@ -104,19 +102,16 @@
   color: black !important;
   min-width: 20%;
 
+
   a{ 
     color: black;
     font-size: larger;
     font-weight: 600;
   }
 
-
-
-
 }
 
-
-.test-btn:active {
+button.test-btn:active {
   width: 2%;
   height: 100%;
   padding:1.98rem;

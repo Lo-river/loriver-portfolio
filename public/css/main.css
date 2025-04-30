@@ -230,7 +230,7 @@ footer {
   accent-color: #ffffff;
 }
 
-.test-btn {
+button.test-btn {
   padding: 2rem;
   border: solid black 3px;
   border-radius: 6px;
@@ -238,13 +238,13 @@ footer {
   color: black !important;
   min-width: 20%;
 }
-.test-btn a {
+button.test-btn a {
   color: black;
   font-size: larger;
   font-weight: 600;
 }
 
-.test-btn:active {
+button.test-btn:active {
   width: 2%;
   height: 100%;
   padding: 1.98rem;
