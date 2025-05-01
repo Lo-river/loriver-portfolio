@@ -107,15 +107,31 @@ button.test-btn{
 
 
 
-  a{
-    color: black;
-    font-size: larger;
-    font-weight: 600;
-  }
+//   a{
+//     color: black;
+//     font-size: larger;
+//     font-weight: 600;
+//   }
 
+// }
+
+// button.test-btn:active {
+//   transform: translate(2px, 2px);
+//   box-shadow: 1px 1px 1px 0.5px #222;
+// }
+a.index-test-btn {
+  display: inline-block;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  border: solid black 3px;
+  border-radius: 6px;
+  box-shadow: 4px 5px 1px 0.1px #222;
+  color: black;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.09s ease-in-out;
 }
-
-button.test-btn:active {
+a.index-test-btn:active {
   transform: translate(2px, 2px);
   box-shadow: 1px 1px 1px 0.5px #222;
-}
+}}
