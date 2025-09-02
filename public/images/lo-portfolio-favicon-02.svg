@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-label="Lodjur ikon">
+  <defs>
+    <style>
+      .face { fill:#d4a53f; } /* varm gul ton */
+      .details { fill:#fff; } /* ögon/nos kontrast */
+    </style>
+  </defs>
+
+  <!-- Huvudform med öron och kindtofsar -->
+  <path class="face" d="
+    M12 36
+    C12 22, 22 12, 32 12
+    C42 12, 52 22, 52 36
+    C52 48, 44 56, 32 56
+    C20 56, 12 48, 12 36 Z
+  "/>
+
+  <!-- Örontofsar -->
+  <path class="face" d="M20 12 C16 8, 14 10, 14 16 L18 18 Z"/>
+  <path class="face" d="M44 12 C48 8, 50 10, 50 16 L46 18 Z"/>
+
+  <!-- Kindtofsar -->
+  <path class="face" d="M14 38 C14 44, 18 50, 22 52 Z"/>
+  <path class="face" d="M50 38 C50 44, 46 50, 42 52 Z"/>
+
+  <!-- Ögon -->
+  <ellipse class="details" cx="24" cy="36" rx="3" ry="4"/>
+  <ellipse class="details" cx="40" cy="36" rx="3" ry="4"/>
+
+  <!-- Nosen -->
+  <ellipse class="details" cx="32" cy="42" rx="2.5" ry="2"/>
+</svg>

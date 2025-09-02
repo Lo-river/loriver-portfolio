@@ -58,6 +58,8 @@
   justify-content: center;
   width: 200px;
   height: 200px;
+  // background-color: #ffaa00;
+  // border-radius: 50%;
 
   @media (min-width: $breakpoint-lg) {
     width: 260px;
@@ -75,7 +77,9 @@
   inset: 0;
   border-radius: 50%;
   // background: rgba(255, 221, 0, 0.935);
-  background: #ffbf00;
+  // background: #ffbf00 !important;
+  background: #ffaa00 !important;
+  // background: rgb(167, 157, 254);
   border: black 2px solid;
   z-index: 0;
 }
@@ -138,8 +142,15 @@
     display: block;
     pointer-events: none; 
   }
+
 }
 
+   .linkedin-icon :hover img {
+    content: url('/public/icons/linkedin-yellow.svg');
+  }
+  .github-icon :hover img {
+  content: url('/public/icons/github-yellow.svg');
+}
 
 
 .night .linkedin-icon{

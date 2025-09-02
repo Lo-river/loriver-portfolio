@@ -9,9 +9,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Londrina+Outline&family=Londrina+Shadow&display=swap" rel="stylesheet">
     <title>Portfolio</title>
+    <link rel="icon" href="./public/images/portfolio-favicon-4.png" type="image/x-icon">
 </head>
 <body>
-        <a href="index-test.html"><button class="toindex-test-html">Index-test</button></a>
+      <div class="progress-bar"></div>
+
+        <!-- <a href="index-test.html"><button class="toindex-test-html">Index-test</button></a> -->
         <div class="theme-toggle">
             <label>Light
                 <input type="radio" name="theme" value="day" checked onclick="handleClick(this)">
@@ -35,11 +38,12 @@
     <div class="main-container">
         <section class="profile-section">
             <div class="profile-content">
-                <h1>Lo River Lööf</h1>
-                <h2>Frontend Developer</h2>
+                <h1 class="fade-in">Lo River Lööf</h1>
+                <h2 class="fade-in">Frontend Developer</h2>
                 <div class="buttons-row">
 
-                   <a href="public/files/test-website.pdf" download="Loriver-CV.pdf" target="_blank"><button class="button">Download CV</button></a>
+                   <a href="public/files/lo-river-loof-cv.pdf" download="Loriver-CV.pdf" target="_blank"><button class="button">Download CV</button></a>
+                   <a href="lo-river-loof-cv.pdf" download="Loriver-CV.pdf" target="_blank"><button class="button">Download CV</button></a>
                    <a href="mailto:loriverinez.loof@yh.nackademin.se"><button class="button">Contact Me</button></a> 
                    
                     
@@ -47,10 +51,11 @@
                 </div>
                 <div class="social-row">
                     
-                    <a class="linkedin-icon" href="https://linkedin.com/" target="_blank"><img src="/public/icons/linkedin-grey.svg" alt="Linkedin logo" class="icon-img" /></a>
+                    <!-- <a class="linkedin-icon" href="https://linkedin.com/" target="_blank"><img src="/public/icons/linkedin-grey.svg" alt="Linkedin logo" class="icon-img" /></a> -->
+                    <a class="linkedin-icon" href="https://linkedin.com/in/lo-river-lööf-374615328" target="_blank"><img src="/public/icons/linkedin-grey.svg" alt="Linkedin logo" class="icon-img" /></a>
                     <a class="github-icon" href="https://github.com/" target="_blank"><img src="/public/icons/github-grey.svg" alt="GitHub logo" class="icon-img" /></a>
                     
-                  
+
                 </div>
             </div>
             <div class="profile-img-bg">
@@ -59,21 +64,58 @@
         </section>
         <section>
             <div class="about-me-conatiner">
-                <h3>About me</h3>
-                <p class="p-about-me">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta, vitae, dolore dolorum corrupti, impedit aliquid aliquam voluptas harum accusamus minima ad illum nulla adipisci id! Necessitatibus cum quibusdam architecto et!</p>
+                <h3 class="fade-in">About me</h3>
+                <!-- <p id="p-about-me" class="fade-in">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta, vitae, dolore dolorum corrupti, impedit aliquid aliquam voluptas harum accusamus minima ad illum nulla adipisci id! Necessitatibus cum quibusdam architecto et!</p> -->
+                <p id="p-about-me" class="fade-in">Hej! Jag heter Lo River Lööf och studerar just nu till <strong>Frontend-utvecklare</strong> på <strong>Nackademin</strong>. I december börjar min sex månader långa praktikperiod, och jag söker en plats där jag får möjlighet att växa, lära mig mer i samarbete med kollegor och bidra till projekt med mina kunskaper. </p>
+                <p id="p-about-me" class="fade-in">Jag har alltid haft ett stort intresse för att förstå grunden till saker och för att skapa – både praktiskt och visuellt. Tidigare arbetade jag som snickare och fotograf/bildjournalist, och i frontendutveckling har jag hittat den perfekta kombinationen av struktur, problemlösning och kreativt uttryck. Det öga för detaljer, känsla för struktur och problemlösningsförmåga jag fått med mig från mina tidigare yrken är idag en av mina styrkor i rollen som frontend-utvecklare.</p>
+                <p id="p-about-me" class="fade-in">Under utbildningen har jag arbetat med <strong>HTML, CSS/SCSS, JavaScript och React, samt UX/UI-design i Figma</strong>.<!-- (Api / strpi, backend, vad mer) --> Jag uppskattar samarbete, idéutbyte och kreativitet – men är också van vid och trygg i att ta eget ansvar. Genom projekten på utbildningen har jag upptäckt hur mycket jag trivs i ett agilt arbetssätt, där man driver projekt tillsammans men ansvarar för olika delar. Jag ser fram emot att få komma ut på praktik, gärna i en ödmjuk, öppen och kreativ miljö.</p>
             </div>
         </section>
 
-        <section class="test-container">
+        <section>
+            <div class="skill-grid"></div>
+        </section>
+
+        <!-- <section class="test-container">
             <h4 class="h4-test">h4-test</h4>
             <p class="p-test"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi nisi sit similique dignissimos dolores.</p>
-            <!-- <button class="test-btn"> <a href="/projects.html">Button</a></button> -->
             <button class="test-btn" > <a href="/index.html">Button</a></button>
-        </section>
-    </div>
+        </section> -->
+        
+  
+      
+    
+   <section class="hero">
+       <!-- <h2 class="fade-in">Hej! Jag heter Lo River</h2> -->
+      <p id="hero-p" class="fade-in" ><strong>Frontendutvecklare</strong> i träning – se vad jag kan 👇</p>
+    </section>
 
+    <section class="projects">
+      <h2 class="project-title">Mina projekt</h2>
+      <div class="card-grid">
+        <div class="card">
+            <div></div>
+          <img class="project-img" src="/public/images/groundly_activity_app.png"  alt="Project Groundly - Activity application"/>
+          <div class="info">ToDo App i JavaScript</div>
+        </div>
+        <div class="card">
+          <img class="project-img" src="public/images/groundly_activity_app.png" alt="Projekt 2" />
+          <div class="info">Tamagotchi-spel</div>
+        </div>
+        <!-- fler kort -->
+      </div>
+    </section>
+    
+    <!-- <button class="back-to-top">⬆︎ Toppen</button> -->
+    <button class="back-to-top">⬆︎ </button>
+  
+  </div>
     <footer>
         <p>© 2025 Lo River Lööf</p>
     </footer>
+
+
+
+    
 </body>
 </html>

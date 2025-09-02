@@ -6,7 +6,10 @@
   align-items: center;
   min-height: 100vh;
   padding: 2rem 1rem;
+  color: #ffffff00;
   background: transparent;
+  // background-color: rgb(241, 241, 241); kanske för hela sidan
+  // border: #343434 solid 4px;
 }
 
 
@@ -149,4 +152,139 @@ footer{
   }
 
 
+}
+
+
+    @media screen and (min-width: 1080px) {
+    .skill-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-gap: 50px;
+        gap: 50px;
+        grid-auto-rows: auto;
+        height: auto;
+    }
+}
+
+// Nytt test
+
+/* body {
+  font-family: sans-serif;
+  margin: 0;
+  background: #fff;
+  color: #111;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark {
+  background: #111;
+  color: #fff;
+} */
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: #ffb700;
+  width: 0;
+  z-index: 100;
+}
+
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  padding: 0.5em;
+  display: none;
+}
+
+.cursor {
+  width: 12px;
+  height: 12px;
+  background: #007aff;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+}
+
+#hero-p {
+  margin-top: 50px !important;
+}
+
+.card-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  flex-wrap: wrap;
+  border-radius: 6px;
+
+}
+
+// $breakpoint-sm: 450px;
+// $breakpoint-md: 600px;
+// $breakpoint-lg: 900px;
+// $breakpoint-xl: 1200px;
+// Desktop & större plattor
+@media (min-width: $breakpoint-md) {
+
+    .card-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    flex-wrap: wrap;
+  } 
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+.card:hover {
+  transform: scale(1.03);
+}
+.card .info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5em;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+.card:hover .info {
+  transform: translateY(0);
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+    // letter-spacing: 0.1rem;
+
+}
+
+
+.project-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  max-width: 350px !important;
+}
+
+.project-title {
+  margin-bottom: 0.5rem;
 }

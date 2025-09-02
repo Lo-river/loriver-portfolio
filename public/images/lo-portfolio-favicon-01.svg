@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Lodjur">
+  <g fill="none" stroke="#b7cd4a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- huvudkontur med örontofsar -->
+    <path d="M12 34c0-9 6-17 15-20m10 0c9 3 15 11 15 20 0 12-10 20-23 20S12 46 12 34Z"/>
+    <path d="M22 16l-2 4m24-4l2 4"/>
+    <!-- ögon + nos -->
+    <path d="M25 37h0m14 0h0M32 44v0"/>
+  </g>
+</svg>

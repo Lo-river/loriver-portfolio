@@ -14,7 +14,9 @@
   cursor: pointer;
   transition: background 0.2s;
   &:hover {
-    background: $primary;
+    // background: $primary;
+    background: #ffb700;
+    color: #000;
   }
 
   &active{
@@ -135,3 +137,10 @@ a.index-test-btn:active {
   transform: translate(2px, 2px);
   box-shadow: 1px 1px 1px 0.5px #222;
 }}
+
+.back-to-top {
+  background-color: #e2e2e2;
+  padding: 0.5rem 0.8rem;
+  border-radius: 20px;
+  // border: 0.5px solid rgb(47, 47, 47)9 !important;
+}
