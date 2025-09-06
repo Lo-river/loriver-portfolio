@@ -13,27 +13,25 @@
 
 body.day {
   --background-color: #FEFEFE;
-  --text-color: #616161 ;
+  --text-color: #616161;
   --link-color: black;
 }
 
 body.night {
   --background-color: var(--bg-dark);
   --text-color: var(--text-dark);
-  --link-color: lightblue;
   --link-color: #ffb700;
   --h1-color: #ffb700;
   --h2-color: #00d4ff;
   --h3-color: #b37cf2;
   --p-color: #e0e0e0;
-  --box-shadow:none;
+  --box-shadow: none;
 }
 
 body {
   background: var(--background-color);
   color: var(--text-color, #222);
   font-family: "Inter", Arial, sans-serif;
-  font-family: "Roboto";
   letter-spacing: 0.5px;
   margin: 0;
   padding: 0;
@@ -72,7 +70,6 @@ a {
 }
 
 a:hover {
-  color: #b9e702;
   color: #ffb700;
 }
 
@@ -127,6 +124,7 @@ a:hover {
     text-align: right;
   }
 }
+
 @media (min-width: 600px) and (max-width: 1024px) and (orientation: landscape) {
   .profile-section {
     flex-direction: row;
@@ -139,6 +137,7 @@ a:hover {
     text-align: right;
   }
 }
+
 .social-row {
   display: flex;
   flex-direction: row;
@@ -181,28 +180,18 @@ footer {
     gap: 2rem;
   }
 }
+
 @media screen and (min-width: 1080px) {
   .skill-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-gap: 50px;
     gap: 50px;
     grid-auto-rows: auto;
     height: auto;
   }
 }
-/* body {
-  font-family: sans-serif;
-  margin: 0;
-  background: #fff;
-  color: #111;
-  transition: background 0.3s, color 0.3s;
-}
 
-body.dark {
-  background: #111;
-  color: #fff;
-} */
+/* Progress bar & utilities */
 .progress-bar {
   position: fixed;
   top: 0;
@@ -219,6 +208,9 @@ body.dark {
   bottom: 20px;
   padding: 0.5em;
   display: none;
+  background-color: #e2e2e2;
+  padding: 0.5rem 0.8rem;
+  border-radius: 20px;
 }
 
 .cursor {
@@ -237,6 +229,7 @@ body.dark {
   margin-top: 50px !important;
 }
 
+/* Cards */
 .card-grid {
   display: flex;
   flex-direction: column;
@@ -248,12 +241,11 @@ body.dark {
 
 @media (min-width: 600px) {
   .card-grid {
-    display: flex;
     flex-direction: row;
     gap: 1em;
-    flex-wrap: wrap;
   }
 }
+
 .card {
   position: relative;
   overflow: hidden;
@@ -315,6 +307,7 @@ body.dark {
   gap: 0.5rem;
 }
 
+/* Cards v2 */
 .card-grid-2 {
   display: flex;
   flex-direction: column;
@@ -324,14 +317,6 @@ body.dark {
   border-radius: 6px;
 }
 
-@media (min-width: 600px) {
-  .card-grid-2 {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    flex-wrap: wrap;
-  }
-}
 .card-2 {
   position: relative;
   overflow: hidden;
@@ -368,6 +353,7 @@ body.dark {
   transform: translateY(0);
 }
 
+/* Buttons */
 .button {
   display: inline-block;
   padding: 0.7em 2em !important;
@@ -385,11 +371,13 @@ body.dark {
   background: #ffb700;
   color: #000;
 }
+
 .buttonactive {
   width: 2%;
   height: 100%;
   padding: 1.98rem;
 }
+
 @media (min-width: 900px) {
   .button {
     padding: 1em 3em;
@@ -409,6 +397,7 @@ body.dark {
   justify-content: center;
 }
 
+/* Theme toggle */
 .theme-toggle {
   display: flex;
   justify-content: flex-end;
@@ -421,7 +410,7 @@ body.dark {
   cursor: pointer;
   color: var(--text-color);
 }
-.theme-toggle label input[type=radio] {
+.theme-toggle label input[type="radio"] {
   margin-left: 0.3em;
   accent-color: #222;
 }
@@ -430,10 +419,11 @@ body.dark {
   color: var(--text-dark);
 }
 
-.night .theme-toggle input[type=radio] {
+.night .theme-toggle input[type="radio"] {
   accent-color: #ffffff;
 }
 
+/* Test btns */
 button.test-btn {
   padding: 1rem;
   border: solid black 3px;
@@ -460,12 +450,7 @@ button.test-btn a.index-test-btn:active {
   box-shadow: 1px 1px 1px 0.5px #222;
 }
 
-.back-to-top {
-  background-color: #e2e2e2;
-  padding: 0.5rem 0.8rem;
-  border-radius: 20px;
-}
-
+/* Profile image */
 .profile-img-bg {
   position: relative;
   display: flex;
@@ -510,6 +495,7 @@ button.test-btn a.index-test-btn:active {
   z-index: 1;
 }
 
+/* Social icons */
 .github-icon, .linkedin-icon {
   display: inline-flex;
   align-items: center;
@@ -527,22 +513,25 @@ button.test-btn a.index-test-btn:active {
   pointer-events: none;
 }
 
-.linkedin-icon :hover img {
+/* Hover states for icons: assumes an <img class="icon-img"> inside the button */
+.linkedin-icon:hover img.icon-img {
   content: url("/public/icons/linkedin-yellow.svg");
 }
 
-.github-icon :hover img {
+.github-icon:hover img.icon-img {
   content: url("/public/icons/github-yellow.svg");
 }
 
-.night .linkedin-icon {
+/* Night variants — if you want white icons in night mode by default */
+.night .linkedin-icon img.icon-img {
   content: url("/public/icons/linkedin-white.svg");
 }
 
-.night .github-icon {
+.night .github-icon img.icon-img {
   content: url("/public/icons/github-white.svg");
 }
 
+/* CTA Button */
 button.index-test-btn {
   border: solid black 3px;
   border-radius: 6px;
@@ -565,7 +554,7 @@ button.index-test-btn p {
   text-align: start !important;
 }
 
-index-test-btn:active {
+button.index-test-btn:active {
   transform: translate(2px, 2px);
   box-shadow: 1px 1px 1px 0.5px #222;
 }
