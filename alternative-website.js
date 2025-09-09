@@ -100,7 +100,12 @@ const translations = {
     "about.p3": `Under utbildningen har jag arbetat med <strong>HTML, CSS/SCSS, JavaScript och React</strong>, samt <strong>UX/UI-design i Figma</strong>. Jag uppskattar samarbete, idéutbyte och kreativitet – men är också van vid och trygg i att ta eget ansvar. Genom projekten har jag upptäckt hur mycket jag trivs i ett agilt arbetssätt.`,
 
     // "lia.info": "Läs om vad Nackademins LIA innebär:",
-    "lia.info": "Läs mer om LIA här",
+    // "lia.info-2": "Läs mer om LIA här",
+    // "lia.p" : "Ladda ner och läs mer om vad det innebär att ta emot en praktikant från Nackademin.",
+    // "lia.btn" : "Ladda ner och läs mer om vad det innebär att ta emot en praktikant från Nackademin.",
+    "lia.title" : "Ladda ner och läs mer om vad det innebär att ta emot en praktikant från Nackademin.",
+
+    "lia.hint": "PDF • 1–2 min läsning",
 
     "p.project": `<strong>Några projekt jag jobbat med ↓</strong>`,
 
@@ -137,7 +142,16 @@ const translations = {
 
     // "lia.info": "Information about what Nackademin’s internship (LIA) involves:",
     // "lia.info": "Download Nackademin's pdf about what internship (LIA) involves:",
-    "lia.info": "Read more about internship/LIA",
+
+    // "lia.info": "Read more about internship/LIA",
+    // "lia.info-2": "Läs mer om LIA här",
+    // "lia.p": "Read more about what Nackademin's internship/LIA ",
+    // "lia.p": " Download and learn more about what it means to host an intern from Nackademin.",
+    // "lia.btn": " Download and learn more about what it means to host an intern from Nackademin.",
+    "lia.title": " Download and learn more about what it means to host an intern from Nackademin.",
+    "lia.hint": "PDF • 1–2 min read",
+    
+
 
     "p.project": `<strong>Some projects I’ve made ↓</strong>`,
 
@@ -169,6 +183,9 @@ const texts = translations[lang] || translations[defaultLang];
   document.documentElement.lang = (lang === "eng") ? "en" : "swe"
   localStorage.setItem("lang", lang);
 
+
+  // NYTT: gör språket tillgängligt i CSS (för knappens bakgrund)
+  document.body.dataset.lang = lang;
 
 //Uppdaterar aktiv knapp
 document.querySelectorAll(".lang-btn").forEach(btn => {

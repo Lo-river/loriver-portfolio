@@ -16,8 +16,7 @@
   <script src="alternative-website.js" defer></script>
 </head>
 <body>
-
-  <!-- Progress Scroll  -->
+  <!-- Scroll progress -->
   <div class="progress-bar"></div>
   
 
@@ -39,7 +38,7 @@
         
         </nav>  
 
-        <!-- Language toggle -->
+        <!-- Språk-toggle -->
         <div class="lang-toggle" role="group" aria-label="Language">
           <button type="button" class="lang-btn" data-lang="swe" data-t="swe" ="true">SVE</button>
           <span class="sep">/</span>
@@ -55,6 +54,7 @@
       <section class="profile-section" id="profile-section">
         <div class="profile-content">
           <h1 class="fade-in">Lo River Lööf</h1>
+          <!-- <h2 class="fade-in">Frontend Developer</h2> -->
           <h2 class="fade-in" data-t="hero.title">Frontendutvecklare</h2>
 
           <div class="buttons-row">
@@ -76,7 +76,7 @@
           </div>  
           
 
-          <!-- LIA info (icon + text) -->
+          <!-- LIA-info (ikon + text) -->
       <section class="short-info">
         <p data-t="hero.info">
           Jag studerar till <strong>Frontendutvecklare</strong> på Nackademin, och nu letar jag efter LIA-/praktikplats
@@ -172,11 +172,12 @@
 
     <!-- p.project text under -->
     <section class="project-section">
-      <p id="p-project" class="fade-in" data-t="p.project"></p>
+      <p id="p-project" class="fade-in" data-t="p.project"><strong>Några projekt jag jobbat med ↓</strong></p>
     </section>
 
-    <!-- Project sektion -->
+    <!-- Projektsektion -->
     <section class="projects" id="projects" >
+      <!-- <h2 class="project-title" id="projects">Mina projekt</h2> -->
 
       <div class="card-grid">
  
@@ -184,37 +185,85 @@
           <img class="project-img" src="/public/images/groundly_activity_app-3-zoomedout.png" alt="Project Groundly - Activity application" />
           <div class="card-text">
               <div class="info" data-t="project.1"> Productivity app "Groundly" (Grupprojekt) </div>  <!-- Testa Appen -->
-              
+
+                              
                 <a class="card-cta" href="https://lo-river.github.io/productivity-app/" target="_blank" data-t="cta.try"></a>
             </div>
         </div>
+
+
 
         <div class="card">
           <img class="project-img" src="public/images/offigotchi_app-less.png" alt="Tamagotchi spel" />
             <div class="card-text">
               <div class="info" data-t="project.2"> Tamagotchi spel  </div>      <!-- Spela Offigotchi -->
             
-                <!-- <a class="card-cta" href="https://lo-river.github.io/offigotchi/" target="_blank" data-t="cta.try"></a> -->
-                <a class="card-cta" href="https://github.com/Lo-river/offigotchi" target="_blank" data-t="cta.try"></a>
+                <a class="card-cta" href="https://lo-river.github.io/offigotchi/" target="_blank" data-t="cta.try"></a>
           </div>
         </div>
+
 
         <div class="card">
           <img class="project-img" src="public/images/quiz_app-less.png" alt="Quiz-app" />
             <div class="card-text">
             <div class="info" data-t="project.3"></div>          
                    
-          <!-- <a class="card-cta" href="https://lo-river.github.io/Lo-examinationsuppgift-javascript1/" target="_blank" data-t="cta.try"></a> -->
-          <a class="card-cta" href="https://github.com/Lo-river/Lo-examinationsuppgift-javascript1" target="_blank" data-t="cta.try"></a>
+          <a class="card-cta" href="https://lo-river.github.io/Lo-examinationsuppgift-javascript1/" target="_blank" data-t="cta.try"></a>
 
           </div>
         </div>
       </div>
+
     </section>
 
 
 
-    <!-- to the top -->
+
+<!-- NYTT TEST PDF  -->
+<!-- <section class="lia-cta" aria-labelledby="lia-cta-title">
+  <div class="lia-cta__content">
+    <div class="lia-cta__text">
+      <h4 id="lia-cta-title" class="lia-cta__title" data-t="lia.title">
+        Läs mer om vad det innebär att ta emot en praktikant från Nackademin.
+      </h4>
+      <p class="lia-cta__hint" data-t="lia.hint">PDF • 1–2 min läsning</p>
+    </div>
+
+    <! <a class="lia-cta__button"
+       href="/public/files/lia-kit-nackademin.pdf"
+       download="LIA-info-Nackademin.pdf"
+       target="_blank"
+       aria-label="Ladda ner PDF: LIA-information från Nackademin"
+       data-t="lia.btn">
+      <img class="lia-cta-icon-btn"
+           src=" public/icons/lia-pdf-button-swe.svg";
+           
+
+           alt=""
+           width="48" height="48" loading="lazy" 
+           />
+    </a> ->
+  
+  <a class="lia-cta__button"
+    href="/public/files/lia-kit-nackademin.pdf"
+    download="LIA-info-Nackademin.pdf"
+    target="_blank"
+    aria-label="Ladda ner PDF: LIA-information från Nackademin"
+    data-t="lia.btn">
+    <span class="sr-only">Ladda ner PDF</span>
+  </a>
+  
+  </div>
+</section> -->
+
+
+
+
+
+
+
+
+    <!-- Till toppen -->
     <button class="back-to-top" aria-label="Till toppen">⬆︎</button>
   </main>
   <footer>
@@ -224,3 +273,21 @@
 </body>
 </html>
 
+
+
+<!-- ska troligtvis inte använda:  -->
+
+          <!-- <div class="lia-info-2">
+          <a class="download" href="./public/files/lia-kit-nackademin.pdf" download="./public/files/lia-kit-nackademin.pdf" target="_blank">
+            <img src="/public/icons/lia-pdf-ff8800.svg" alt="Ladda ner LIA-pdf" class="lia-pdf-icon" />
+          </a>          
+          <p class="lia-p">Här kan du läsa lite mer om vad LIA-praktik från Nackademin innebär:</p>
+
+          </div>
+
+      <div class="lia-info-2">
+          <p data-t="lia.info"> 
+          <a class="download" href="./public/files/lia-kit-nackademin.pdf" download="./public/files/lia-kit-nackademin.pdf" target="_blank"> </p>
+            <img src="public/icons/download-5.svg" alt="Ladda ner LIA-pdf" class="lia-icon-img" />
+          </a>
+      </div> -->
