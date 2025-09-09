@@ -36,6 +36,41 @@ window.handleThemeClick = handleThemeClick;
   }
 })();
 
+function setTheme(mode) { // "light" | "dark"
+  const btn  = document.getElementById("themeToggle");
+  const icon = document.getElementById("themeIcon");
+  const isDark = mode === "dark";
+
+  document.body.classList.toggle("night", isDark);
+  document.body.classList.toggle("day", !isDark);
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+
+  // Byt ikonfil: vit ikon i dark, svart ikon i light
+  icon.src = isDark ? "public/icons/light-toggle.svg"
+                    : "public/icons/dark-toggle.svg";
+
+  // Tillgänglighetsattribut
+  btn.setAttribute("aria-pressed", isDark ? "true" : "false");
+  btn.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+}
+
+function toggleTheme() {
+  const isDark = document.body.classList.contains("night");
+  setTheme(isDark ? "light" : "dark");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const saved = localStorage.getItem("theme");
+  const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches;
+  const start = saved || (prefersDark ? "dark" : "light");
+  setTheme(start);
+
+  document.getElementById("themeToggle")?.addEventListener("click", toggleTheme);
+});
+
+
+
+
 
 // Starttema (svenska som bas)
 
@@ -45,6 +80,8 @@ const translations = {
     "nav.about": "Om mig",
     "nav.projects": "Projekt",
 
+    
+
     "swe":"SV",
     "en":"ENG",
 
@@ -53,7 +90,7 @@ const translations = {
     "btn.contactMe": "Kontakta mig",
 
     "hero.info" : `Jag studerar till <strong>Frontendutvecklare</strong> på Nackademin, och nu letar jag efter LIA-/praktikplats
-        mellan <strong>2025-12-08 – 2026-04-24</strong>`,
+        mellan <strong>2025-12-08 – 2026-04-24.</strong>`,
 
     "about.heading": "Om mig",
     "about.p1": `          Hej! Jag heter Lo River Lööf och studerar just nu till <strong>Frontendutvecklare</strong> på
@@ -62,11 +99,19 @@ const translations = {
     "about.p2": `Jag har alltid haft ett stort intresse för att förstå grunden till saker och för att skapa – både praktiskt och visuellt. Tidigare arbetade jag som snickare och fotograf/bildjournalist, och i frontendutveckling har jag hittat den perfekta kombinationen av struktur, problemlösning och kreativt uttryck. Det öga för detaljer, känsla för struktur och problemlösningsförmåga jag fått med mig från mina tidigare yrken är idag en av mina styrkor i rollen som frontend-utvecklare.`,
     "about.p3": `Under utbildningen har jag arbetat med <strong>HTML, CSS/SCSS, JavaScript och React</strong>, samt <strong>UX/UI-design i Figma</strong>. Jag uppskattar samarbete, idéutbyte och kreativitet – men är också van vid och trygg i att ta eget ansvar. Genom projekten har jag upptäckt hur mycket jag trivs i ett agilt arbetssätt.`,
 
-    "mini-hero": `<strong>Några projekt jag jobbat med ↓</strong>`,
+    // "lia.info": "Läs om vad Nackademins LIA innebär:",
+    "lia.info": "Läs mer om LIA här",
 
-    "project.1": `Productivity App - "Groundly" (Grupprojekt projekt)`,
+    "p.project": `<strong>Några projekt jag jobbat med ↓</strong>`,
+
+    "project.1": `Productivity App - "Groundly" (Grupprojekt)`,
+   
     "project.2": `Tamagotchi spel - "Offigotchi"`,
+   
     "project.3": `Quiz App - "Space Quiz"`, 
+
+    "cta.try": "<strong>Testa</strong>",
+
 
     "backToTop": "Till toppen"
   },
@@ -83,21 +128,26 @@ const translations = {
     "btn.contactMe": "Contact Me",
 
     "hero.info" : `I’m currently studying to become a <strong>Frontend Developer</strong> at Nackademin, and I’m now looking for an internship (LIA) 
-            between <strong>2025-12-08 – 2026-04-24</strong>.`,
+            between <strong>2025-12-08 – 2026-04-24.</strong>`,
 
     "about.heading": "About me",
     "about.p1": `Hi! My name is Lo River Lööf and I’m currently studying to become a <strong>Frontend Developer</strong> at <strong>Nackademin</strong>. In December my six-month internship starts, and I’m looking for a place where I can grow, learn alongside colleagues, and contribute to projects with my skills.`,
     "about.p2": `I’ve always loved understanding how things work and creating — both practically and visually. I previously worked as a carpenter and as a photographer/photojournalist, and in frontend development I’ve found the perfect mix of structure, problem-solving, and creative expression. The eye for detail, sense of structure, and problem-solving ability I bring from past roles are now some of my strengths as a frontend developer.`,
     "about.p3": `During my education I’ve worked with <strong>HTML, CSS/SCSS, JavaScript and React</strong>, as well as <strong>UX/UI design in Figma</strong>. I enjoy collaboration, idea exchange, and creativity — and I’m also used to and comfortable taking responsibility. Through projects I’ve discovered how much I thrive in an agile way of working.`,
 
-    "lia.info": "Download Nackademin's pdf about what internship (LIA) involves:",
     // "lia.info": "Information about what Nackademin’s internship (LIA) involves:",
+    // "lia.info": "Download Nackademin's pdf about what internship (LIA) involves:",
+    "lia.info": "Read more about internship/LIA",
 
-    "mini-hero": `<strong>Some projects I’ve made ↓</strong>`,
+    "p.project": `<strong>Some projects I’ve made ↓</strong>`,
 
     "project.1": `Productivity App - "Groundly" (Group project)`,
+
     "project.2": `Tamagotchi game - "Offigotchi"`,
-    "project.3": `Quiz App - "Space Quiz"`, 
+
+    "project.3": `Quiz App - "Space Quiz" `,
+
+    "cta.try": "<strong>Try it out</strong>",
 
     "backToTop": "Back to top"
   }

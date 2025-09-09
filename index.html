@@ -18,95 +18,100 @@
 <body>
   <!-- Scroll progress -->
   <div class="progress-bar"></div>
-
-  <!-- Tema-toggle -->
-  <div class="theme-toggle">
-    <label>Light
-      <input type="radio" name="theme" value="day" checked onclick="handleThemeClick(this)">
-    </label>
-    <label>Dark
-      <input type="radio" name="theme" value="night" onclick="handleThemeClick(this)">
-    </label>
-  </div>
-
-  <!-- Language-toggle -->
-  <!-- <div class="lang-toggle">
-    <label>SWE
-      <input type="radio" name="lang" value="swe" checked onclick="handleLangClick(this)">
-    </label>
-    <label><button>ENG      <input type="radio" name="lang" value="eng" onclick="handleLangClick(this)">
-</button>
-    </label>
-  </div> -->
-
+  
 
   <header>
-    <nav class="header-nav" >
-      <a href="#profile-section" data-t="nav.home">Hem</a>
-      <a href="#about" data-t="nav.about">Om mig</a>
-      <a href="#projects" data-t="nav.projects">Projekt</a>
-    </nav>  
-      <!-- <div class="lang-toggle">
-        <label><button class="lang-btn">SWE<input type="radio" name="lang" value="swe" class="land-radio" onclick="handleLangClick(this)">
-        </label></button>/
-        <label><button class="lang-btn">ENG<input type="radio" name="lang" value="eng" class="lang-radio" onclick="handleLangClick(this)"></button>
-        </label>
-    </div> -->
-    <div class="lang-toggle" role="group" aria-label="Language">
-  <button type="button" class="lang-btn" data-lang="swe" data-t="swe" ="true">SVE</button>
-  <span class="sep">/</span>
-  <button type="button" class="lang-btn" data-lang="eng" data-t="en"="false">ENG</button>
-</div>
+
+    <section class="header-section">
+        <div class="theme-toggle" aria-label="Theme">
+          <button id="themeToggle" class="theme-icon-btn" aria-pressed="false" aria-label="Switch to dark mode">
+            <img id="themeIcon" src="public/icons/dark-toggle.svg" alt="" width="18" height="18">
+          </button>
+        </div>
+
+        <nav class="header-nav" >
+          
+          <a href="#profile-section" data-t="nav.home">Hem</a>
+          <a href="#about" data-t="nav.about">Om mig</a>
+          <a href="#projects" data-t="nav.projects">Projekt</a>
+        
+        
+        </nav>  
+
+        <!-- Språk-toggle -->
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" class="lang-btn" data-lang="swe" data-t="swe" ="true">SVE</button>
+          <span class="sep">/</span>
+          <button type="button" class="lang-btn" data-lang="eng" data-t="en"="false">ENG</button>
+        </div>
+    </section>
   </header>
-
+            
   <main class="main-container">
-    <!-- Hero / profil split -->
-    <section class="profile-section" id="profile-section">
-      <div class="profile-content">
-        <h1 class="fade-in">Lo River Lööf</h1>
-        <!-- <h2 class="fade-in">Frontend Developer</h2> -->
-        <h2 class="fade-in" data-t="hero.title">Frontendutvecklare</h2>
 
-        <div class="buttons-row">
-          <a href="/public/files/lo-river-loof-cv.pdf" download="Loriver-CV.pdf" target="_blank">
-            <button class="button" data-t="btn.downloadCv">Download CV</button>
-          </a>
-          <a href="mailto:loriverinez.loof@yh.nackademin.se">
-            <button class="button" data-t="btn.contactMe">Contact Me</button>
+    <!-- Hero / profil split -->
+    
+      <section class="profile-section" id="profile-section">
+        <div class="profile-content">
+          <h1 class="fade-in">Lo River Lööf</h1>
+          <!-- <h2 class="fade-in">Frontend Developer</h2> -->
+          <h2 class="fade-in" data-t="hero.title">Frontendutvecklare</h2>
+
+          <div class="buttons-row">
+            <a href="/public/files/lo-river-loof-cv.pdf" download="Loriver-CV.pdf" target="_blank">
+              <button class="button" data-t="btn.downloadCv">Download CV</button>
+            </a>
+            <a href="mailto:loriverinez.loof@yh.nackademin.se">
+              <button class="button" data-t="btn.contactMe">Contact Me</button>
+            </a>
+          </div>
+
+          <div class="social-row">
+            <a class="linkedin-icon" href="https://linkedin.com/in/lo-river-lööf-374615328" target="_blank">
+              <img src="/public/icons/linkedin-grey.svg" alt="LinkedIn" class="icon-img" />
+            </a>
+            <a class="github-icon" href="https://github.com/" target="_blank">
+              <img src="/public/icons/github-grey.svg" alt="GitHub" class="icon-img" />
+            </a>
+          </div>    <!-- LIA-info (ikon + text) -->
+      <section class="short-info">
+        <p data-t="hero.info">
+          Jag studerar till <strong>Frontendutvecklare</strong> på Nackademin, och nu letar jag efter LIA-/praktikplats
+          mellan <strong>2025-12-08 – 2026-04-24</strong></p>
+        
+          <div class="lia-info-2">
+          <!-- <p>Här kan du läsa lite mer om vad LIA-praktik från Nackademin innebär:</p> -->
+          <a class="download" href="./public/files/lia-kit-nackademin.pdf" download="./public/files/lia-kit-nackademin.pdf" target="_blank">
+            <img src="/public/icons/lia-pdf-ff8800.svg" alt="Ladda ner LIA-pdf" class="lia-pdf-icon" />
           </a>
         </div>
 
-        <div class="social-row">
-          <a class="linkedin-icon" href="https://linkedin.com/in/lo-river-lööf-374615328" target="_blank">
-            <img src="/public/icons/linkedin-grey.svg" alt="LinkedIn" class="icon-img" />
+
+                <!-- <p>Här kan du läsa lite mer om vad LIA-praktik från Nackademin innebär: -->
+
+      <!-- <div class="lia-info-2">
+          <p data-t="lia.info"> 
+          <a class="download" href="./public/files/lia-kit-nackademin.pdf" download="./public/files/lia-kit-nackademin.pdf" target="_blank"> </p>
+            <img src="public/icons/download-5.svg" alt="Ladda ner LIA-pdf" class="lia-icon-img" />
           </a>
-          <a class="github-icon" href="https://github.com/" target="_blank">
-            <img src="/public/icons/github-grey.svg" alt="GitHub" class="icon-img" />
-          </a>
-        </div>    <!-- LIA-info (ikon + text) -->
-    <section class="short-info">
-      <p data-t="hero.info">
-        Jag studerar till <strong>Frontendutvecklare</strong> på Nackademin, och nu letar jag efter LIA-/praktikplats
-        mellan <strong>2025-12-08 – 2026-04-24</strong>
-      </p>
-      <!-- <div class="lia-info">
-        <p>Här kan du läsa lite mer om vad LIA-praktik från Nackademin innebär:</p>
-        <a class="download" href="./public/files/lia-kit-nackademin.pdf" download="./public/files/lia-kit-nackademin.pdf" target="_blank">
-          <img src="/public/icons/dowanload-4.svg" alt="Ladda ner LIA-pdf" class="icon-img" />
-        </a>
       </div> -->
-    </section>
+                  <!-- Info om vad Nackademins LIA innebär: -->
 
-      </div>
 
-      <div class="profile-img-bg">
+
+      </section>
+
+        </div>
+        <!-- <div class="backdrop"> -->
+            <div class="profile-img-bg">  
+              <div class="profile-img"></div>
+            </div>
+        <!-- </div> -->
         
-        <div class="profile-img"></div>
-      </div>
+      </section>
+  
 
-      
-    </section>
-
+            <!-- <div class="profile-img"></div> -->
 
     <!-- About -->
     <section id="about">
@@ -134,51 +139,78 @@
 
     <!-- Skills-rad (din bild) -->
     <section>
+      <h2></h2>
       <img class="skill-icons" src="public/images/skills-row-block-night.svg" alt="icons of different design and web building apps" />
     </section>
 
           <div class="lia-info">
         <!-- <p>Här kan du läsa lite mer om vad LIA-praktik från Nackademin innebär: -->
-        <p data-t="lia.info"> Info om vad Nackademins LIA innebär:
+        <p data-t="lia.info"> 
+          <!-- Info om vad Nackademins LIA innebär: -->
         <a class="download" href="./public/files/lia-kit-nackademin.pdf" download="./public/files/lia-kit-nackademin.pdf" target="_blank"> </p>
-          <img src="/public/icons/download-4.svg" alt="Ladda ner LIA-pdf" class="lia-icon-img" />
+          <img src="public/icons/download-5.svg" alt="Ladda ner LIA-pdf" class="lia-icon-img" />
         </a>
         <!-- <p>Där finner du allt du behöver veta och kontaktuppgiter till utbildningsansvarige: Johanna Alex</p> -->
       </div>
 
-    <!-- Mini-hero text under -->
-    <section class="hero">
-      <p id="hero-p" class="fade-in" data-t="mini-hero"><strong>Några projekt jag jobbat med ↓</strong></p>
+    <!-- p.project text under -->
+    <section class="project-section">
+      <p id="p-project" class="fade-in" data-t="p.project"><strong>Några projekt jag jobbat med ↓</strong></p>
     </section>
 
     <!-- Projektsektion -->
     <section class="projects" id="projects" >
       <!-- <h2 class="project-title" id="projects">Mina projekt</h2> -->
+
       <div class="card-grid">
  
         <div class="card">
-          <!-- <img class="project-img" src="/public/images/groundly_activity_app-3-zoomedout.png" alt="Project Groundly - Activity application" /> -->
-          <img class="project-img" src="/public/images/groundly_activity_app-5.png" alt="Project Groundly - Activity application" />
-          <div class="info" data-t="project.1"> Productivity app "Groundly" (Grupprojekt)<a href="https://lo-river.github.io/productivity-app/" target="_blank" ></a></div><!-- Spela Offigotchi -->
+          <img class="project-img" src="/public/images/groundly_activity_app-3-zoomedout.png" alt="Project Groundly - Activity application" />
+          <div class="card-text">
+            <!-- <img class="project-img" src="/public/images/groundly_activity_app-5.png" alt="Project Groundly - Activity application" /> -->
+              <div class="info" data-t="project.1"> Productivity app "Groundly" (Grupprojekt) </div>  <!-- Testa Appen -->
+
+              <!-- <a href="https://lo-river.github.io/productivity-app/" target="_blank" data-t="href.1"><p>Testa</p></a> -->
+                              
+                <a class="card-cta" href="https://lo-river.github.io/productivity-app/" target="_blank" data-t="cta.try"></a>
+            </div>
         </div>
+
+
+
         <div class="card">
           <img class="project-img" src="public/images/offigotchi_app-less.png" alt="Tamagotchi spel" />
-          <div class="info" data-t="project.2"> Tamagotchi spel<a href="https://lo-river.github.io/offigotchi/" target="_blank" aria-label="Tamagotchi game"></a></div> <!-- Spela Offigotchi -->
+            <div class="card-text">
+              <div class="info" data-t="project.2"> Tamagotchi spel  </div>      <!-- Spela Offigotchi -->
+              <!-- <a href="https://lo-river.github.io/offigotchi/" target="_blank" aria-label="Tamagotchi game" data-t="href.2"><p>Testa</p></a> -->
+            
+                <a class="card-cta" href="https://lo-river.github.io/offigotchi/" target="_blank" data-t="cta.try"></a>
+          </div>
         </div>
+
+
         <div class="card">
           <img class="project-img" src="public/images/quiz_app-less.png" alt="Quiz-app" />
-          <div class="info" data-t="project.3">Quiz-app <a href="https://lo-river.github.io/Lo-examinationsuppgift-javascript1/" target="_blank"></a></div> <!-- Kör quizet -->
+            <div class="card-text">
+            <div class="info" data-t="project.3"></div>          
+              <!-- <a href="https://lo-river.github.io/Lo-examinationsuppgift-javascript1/" target="_blank" data-t="href.3"></a> Kör quizet -->
+                   
+          <a class="card-cta" href="https://lo-river.github.io/Lo-examinationsuppgift-javascript1/" target="_blank" data-t="cta.try"></a>
+
+          </div>
         </div>
       </div>
+
     </section>
+
 
 
     <!-- Till toppen -->
     <button class="back-to-top" aria-label="Till toppen">⬆︎</button>
   </main>
-
   <footer>
     <p>© 2025 Lo River Lööf</p>
   </footer>
+
 </body>
 </html>
