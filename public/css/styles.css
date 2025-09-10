@@ -7,7 +7,7 @@
   --card:#ffffff;
   --line:#e9e9e9;
   --shadow:0 10px 30px rgba(0,0,0,.08);
-  
+
   /* Hero/portrait */
   --portrait-size:88%;
   --blob-inset:-16% -26% -8% -18%;
@@ -23,6 +23,25 @@ body.night{
   --shadow:0 21px 200px rgba(99,99,99,.5);
 }
 
+/* icon change dark — ersatt med filter längre ner för cross-browser */
+/*
+body.night .linkedin-icon .icon-img {
+  content:url('public/icons/linkedin-white.svg');
+  filter:none;
+  opacity:.9;
+}
+body.night .github-icon  .icon-img {
+  content:url('public/icons/github-white.svg');
+  filter:none;
+  opacity:.9;
+}
+body.night .download .lia-icon-img {
+  content:url('public/icons/download-4-white.svg');
+  filter:none;
+  opacity:.9;
+  width:50px;
+}
+*/
 
 *{
   box-sizing:border-box;
@@ -51,7 +70,7 @@ body{
   z-index:1000;
 }
 
-/* Header (with Safari-fallback and -webkit-backdrop-filter) */
+/* Header (med Safari-fallback och -webkit-backdrop-filter) */
 header{
   position:sticky;
   top:0;
@@ -60,17 +79,20 @@ header{
   flex-direction:column;
   justify-content:space-between;
   align-items:center;
-  /* Fallback before color-mix (older versions) */
+
+  /* Fallback innan color-mix (för äldre motorer) */
   background:rgba(250,250,250,0.85);
   background:color-mix(in srgb, var(--bg) 70%, transparent);
+
   -webkit-backdrop-filter:saturate(180%) blur(6px);
   backdrop-filter:saturate(180%) blur(6px);
+
   border-bottom:1px solid var(--line);
-  padding:20px 16px;
+  padding:20px 0 20px 20px;
   width:100%;
 }
 
-/* dark mode header (for Safari) */
+/* Mörkt läge för header (hjälper Safari) */
 body.night header{
   background:rgba(21,21,21,0.75);
   background:color-mix(in srgb, var(--bg) 70%, transparent);
@@ -142,7 +164,7 @@ body.night header{
   outline-offset:2px;
 }
 
-/* Language toggle */
+/* Språk-toggle */
 .lang-toggle{
   display:flex;
   justify-content:flex-end;
@@ -184,14 +206,16 @@ input{
   border-radius:45px;
 }
 
-/*  Layout frame  */
+/* ====== Layout-ram ====== */
 .main-container{
   max-width:1200px;
+  /* margin:0 auto; */
+  /* padding:0 20px; */
   margin:auto;
   padding:0 20px;
 }
 
-/*  Hero / Profile */
+/* ====== Hero / Profil ====== */
 .profile-section{
   position:relative;
   overflow:visible;
@@ -278,7 +302,7 @@ input{
   transform:translateY(-1px);
 }
 
-/* Dark-mode secure icon color (cross-browser) */
+/* Dark-mode säker ikonfärg (cross-browser) */
 body.night .icon-img{
   filter:invert(1) grayscale(0);
   opacity:.9;
@@ -287,7 +311,7 @@ body.night .icon-img{
 /* portrait column */
 .profile-img-bg{
   width:min(42vw, 520px);
-  aspect-ratio:3/3.3;
+  aspect-ratio:3/3.7;
   border-radius:12px;
   justify-self:center;
   overflow:visible;
@@ -297,7 +321,7 @@ body.night .icon-img{
   content:"";
   position:absolute;
   inset:var(--blob-inset);
-  background:url('public/images/background-dark-.png') center / contain no-repeat;
+  background:url('/public/images/background-dark-.png') center / contain no-repeat;
   pointer-events:none;
   z-index:0;
   opacity:.96;
@@ -308,10 +332,10 @@ body.night .icon-img{
   inset:0;
   z-index:1;
   border-radius:12px;
-  background:url('public/images/lo-portfolio-crop.webp') center bottom / var(--portrait-size) auto no-repeat;
+  background:url('/public/images/lo-portfolio-transparent.webp') center bottom / var(--portrait-size) auto no-repeat;
 }
 
-/*  short info (LIA)  */
+/*  Kort info (LIA)  */
 .short-info{
   display:flex;
   flex-direction:column;
@@ -325,7 +349,7 @@ body.night .icon-img{
   font-size:1.4rem;
 }
 
-/* Sectionen icon + text  */
+/* Sektionen du hade med ikon + text – låter den vara */
 .lia-info-2{
   display:flex;
   justify-content:center;
@@ -376,15 +400,16 @@ body.night .icon-img{
   margin-top:12px;
 }
 
-/* Skills row */
-/* .skill-row {
-
+/* .about-me-p, .visible {
+  margin-top: 0.8rem !important;
+  margin-bottom: ;
 } */
+
+/* Skills-rad */
 .skill-icons{
-  /* display:none; */
-  justify-self: center;
+  display:none;
   padding-bottom:24px;
-  
+  justify-self: center;
 }
 
 .main-container img[alt*="icons of different"]{
@@ -397,7 +422,7 @@ body.night .icon-img{
   margin:24px 0 0;
 }
 
-/*  Hero under row  */
+/*  Hero underrad  */
 .project-section{
   padding-top:64px;
   border-top:1px solid var(--line);
@@ -413,7 +438,7 @@ body.night .icon-img{
   color:var(--text);
 }
 
-/* Project card */
+/* Projektkort */
 .projects{
   padding:30px 0;
 }
@@ -429,6 +454,7 @@ body.night .icon-img{
   border:1px solid var(--line);
   border-radius:12px;
   overflow:hidden;
+  /* box-shadow:var(--shadow); */
   transition:transform .13s ease, box-shadow .2s ease;
   position:relative;
 }
@@ -492,8 +518,8 @@ body.night .icon-img{
 /* Back to top */
 .back-to-top{
   position:fixed;
-  right:max(16px, env(safe-area-inset-right));
-  bottom:max(16px, env(safe-area-inset-bottom));
+  right:20px;
+  bottom:80px;
   display:none;
   background:var(--text);
   color:var(--bg);
@@ -504,7 +530,6 @@ body.night .icon-img{
   font-size:18px;
   cursor:pointer;
   box-shadow:var(--shadow);
-  z-index:1100;
 }
 
 /* Footer */
@@ -530,44 +555,22 @@ footer{
   margin-bottom:0 !important;
 }
 
-/*  Responsivitet  */
+/*  Responsivity */
 @media (max-width:1024px){
-  /* Stop horizontal scroll small screens */
-  html{
-    overflow-x:hidden;
-  }
-  body{
-    overflow-x:hidden;
-  }
-  /* make profile background overflow */
-  .profile-section{
-    overflow:visible;
-  }
-  .profile-img-bg{
-    overflow:visible;
-  }
-  
-  header{
-    padding:14px 16px;
-  }
-  .main-container{
-    padding-left:16px;
-    padding-right:16px;
-  }
   .header-section{
     max-width:750px;
   }
   .profile-section{
-    /* grid-template-columns:1fr; */
-    /* gap:28px; */
-    /* min-height:auto; */
+    grid-template-columns:1fr;
+    min-height:auto;
     padding:40px 0;
-    display: flex;
-    flex-direction: column;
   }
-  .profile-img-bg{
-    width:min(66vw, 380px);
+ .profile-img-bg{
+    width:min(66vw, 380px);  aspect-ratio:3/3.3;
+
   }
+
+  
   :root{
     --portrait-size:92%;
     --blob-inset:-26% -14% -12% -12%;
@@ -580,6 +583,16 @@ footer{
     width:18px;
     height:18px;
   }
+
+  .about-me-container{
+  /* max-width:350px; */
+  padding: 30px 20px ;
+  border-bottom:1px solid var(--line);
+}
+
+.about-me-container p{
+  margin-bottom: 125px;
+}
 }
 
 @media (max-width:840px){
@@ -617,7 +630,7 @@ footer{
     grid-template-columns:1fr;
   }
   .skill-icons{
-    content:url('public/images/skills-box-block-night.svg');
+    content:url('/public/images/skills-box-block-night.svg');
     width:400px !important;
   }
 }
@@ -629,6 +642,7 @@ footer{
   .profile-img-bg{
     max-width:300px;
     margin:0 auto;
+     aspect-ratio: 3/3.25;
   }
   .profile-content h1{
     font-size:clamp(44px, 16vw, 92px);
@@ -638,17 +652,19 @@ footer{
   }
 }
 
+/* Generell bildstil (cross-browser, ersätter tidigare justify-self-regel) */
 img{
   display:block;
   max-width:100%;
   height:auto;
 }
 
-/* LIA CTA (container) */
+/* ===== LIA CTA (container) ===== */
 .lia-cta{
   margin:24px auto;
   max-width:900px;
   padding:0 16px;
+  /* border: 3px solid green; */
 }
 
 .lia-cta__content{
@@ -656,10 +672,16 @@ img{
   grid-template-columns:1fr auto;
   align-items:center;
   gap:16px;
+  /* background: color-mix(in srgb, var(--card) 90%, var(--text) 10%); */
+  /* background: color-mix(in srgb, var(--card) 20%, var(--text) 5%); */
   background:var(--bg);
+  /* border:1px solid var(--line); */
   border:1px solid #f2f2f2;
+  /* border:1px solid #202028; */
   border-radius:12px;
+  /* box-shadow:var(--shadow) 85%; */
   padding:16px 18px;
+  /* border: solid salmon 3px; */
 }
 
 .lia-cta__title{
@@ -675,7 +697,7 @@ img{
   color:var(--muted);
 }
 
-/* Accessibility – "skärmläsare" */
+/* Tillgänglighet – skärmläsare */
 .sr-only{
   position:absolute !important;
   width:1px;
@@ -688,7 +710,25 @@ img{
   border:0;
 }
 
-/* SVG/pdf button */
+/* ===== HEL SVG-KNAPP ===== */
+/*
+.lia-cta__button{
+  display:block;
+  width:min(100%, 520px);
+  aspect-ratio:800 / 300;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:100% 100%;
+  border:0;
+  text-decoration:none;
+  -- border: 2px pink solid;
+  --background-image: url('/public/icons/lia-pdf-button-swe.svg');
+  transition:transform .08s ease, filter .2s ease;
+  outline:none;
+}
+*/
+
+/* KORR: */
 .lia-cta__button{
   display:block;
   /* width:min(100%, 520px); */
@@ -705,6 +745,16 @@ img{
   outline:none;
 }
 
+/*
+.lia-cta__button:hover,
+.lia-cta__button:focus-visible{
+  background-image: url('/public/icons/lia-pdf-button-swe-hover.svg');
+  transform: translateY(-1px);
+  width: 48px;
+}
+*/
+
+/* KORR: */
 .lia-cta__button:hover,
 .lia-cta__button:focus-visible{
   transform:translateY(-1px);
@@ -717,6 +767,7 @@ img{
 /* SWE */
 .lia-cta__button:hover,
 .lia-cta__button:focus-visible{
+  /* background-image:url('/public/icons/lia-pdf-button-swe-dark-white-fill.svg'); */
   background-image:url('/public/icons/lia-pdf-button-swe.svg');
 }
 
@@ -727,21 +778,24 @@ body[data-lang="eng"] .lia-cta__button{
 
 body[data-lang="eng"] .lia-cta__button:hover,
 body[data-lang="eng"] .lia-cta__button:focus-visible{
+  /* background-image:url('/public/icons/lia-pdf-button-eng-dark-white-fill.svg'); */
   background-image:url('/public/icons/lia-pdf-button-eng.svg');
 }
 
-/* Dark mode: keep neutral container */
+/* Dark mode: behåll neutral container */
 body.night .lia-cta__content{
+  /* background: color-mix(in srgb, var(--card) 82%, var(--text) 18%); */
   border-color:var(--line);
   background-color:#151515;
 }
 
-/* Responsive for CTA */
+/* Responsivt */
 @media (max-width:720px){
   .lia-cta__content{
     grid-template-columns:1fr;
     gap:12px;
   }
+  /* .lia-cta__button{ width: min(100%, 420px); } */
   .lia-cta__button{
     width:180px;
   }
@@ -752,6 +806,7 @@ body.night .lia-cta__content{
   header{
     padding:14px 12px;
   }
+
   .header-section{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -763,17 +818,20 @@ body.night .lia-cta__content{
     max-width:100%;
     padding-bottom:9px;
   }
+
   .lang-toggle{
     grid-area:lang;
     justify-content:flex-start;
     margin:0;
     margin-left:5px;
   }
+
   .theme-toggle{
     grid-area:theme;
     justify-self:end;
     margin-right:5px;
   }
+
   .header-nav{
     grid-area:nav;
     justify-content:center;
@@ -781,12 +839,13 @@ body.night .lia-cta__content{
     padding:0;
     width:100%;
   }
+
   .header-nav a{
     font-size:1rem;
   }
 }
 
-/* even smaller when below 560 */
+/* even smaller when 560 */
 @media (max-width:560px){
   .header-nav a{
     font-size:.95rem;
