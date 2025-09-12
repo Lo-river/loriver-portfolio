@@ -23,25 +23,7 @@ body.night{
   --shadow:0 21px 200px rgba(99,99,99,.5);
 }
 
-/* icon change dark — ersatt med filter längre ner för cross-browser */
-/*
-body.night .linkedin-icon .icon-img {
-  content:url('public/icons/linkedin-white.svg');
-  filter:none;
-  opacity:.9;
-}
-body.night .github-icon  .icon-img {
-  content:url('public/icons/github-white.svg');
-  filter:none;
-  opacity:.9;
-}
-body.night .download .lia-icon-img {
-  content:url('public/icons/download-4-white.svg');
-  filter:none;
-  opacity:.9;
-  width:50px;
-}
-*/
+
 
 *{
   box-sizing:border-box;
@@ -70,7 +52,7 @@ body{
   z-index:1000;
 }
 
-/* Header (med Safari-fallback och -webkit-backdrop-filter) */
+/* Header (with Safari-fallback & -webkit-backdrop-filter) */
 header{
   position:sticky;
   top:0;
@@ -80,7 +62,7 @@ header{
   justify-content:space-between;
   align-items:center;
 
-  /* Fallback innan color-mix (för äldre motorer) */
+  /* Fallback before color-mix (for older motorer) */
   background:rgba(250,250,250,0.85);
   background:color-mix(in srgb, var(--bg) 70%, transparent);
 
@@ -92,7 +74,7 @@ header{
   width:100%;
 }
 
-/* Mörkt läge för header (hjälper Safari) */
+/* Dark mode for header (hjälper Safari) */
 body.night header{
   background:rgba(21,21,21,0.75);
   background:color-mix(in srgb, var(--bg) 70%, transparent);
@@ -164,7 +146,7 @@ body.night header{
   outline-offset:2px;
 }
 
-/* Språk-toggle */
+/* Language toggle */
 .lang-toggle{
   display:flex;
   justify-content:flex-end;
@@ -206,7 +188,7 @@ input{
   border-radius:45px;
 }
 
-/* ====== Layout-ram ====== */
+/* Layout-ram  */
 .main-container{
   max-width:1200px;
   /* margin:0 auto; */
@@ -215,7 +197,7 @@ input{
   padding:0 20px;
 }
 
-/* ====== Hero / Profil ====== */
+/*  Hero / Profil  */
 .profile-section{
   position:relative;
   overflow:visible;
@@ -302,7 +284,7 @@ input{
   transform:translateY(-1px);
 }
 
-/* Dark-mode säker ikonfärg (cross-browser) */
+/* Dark mode secure icon color (cross-browser) */
 body.night .icon-img{
   filter:invert(1) grayscale(0);
   opacity:.9;
@@ -320,12 +302,15 @@ body.night .icon-img{
 .profile-img-bg::before{
   content:"";
   position:absolute;
-  inset:var(--blob-inset);
+  inset:var(--blob-inset);  
+  /* background:url('/public/images/background-dark- 1.svg') center / contain no-repeat; */
   background:url('/public/images/background-dark-.png') center / contain no-repeat;
   pointer-events:none;
   z-index:0;
   opacity:.96;
+  
 }
+
 
 .profile-img{
   position:absolute;
@@ -349,7 +334,7 @@ body.night .icon-img{
   font-size:1.4rem;
 }
 
-/* Sektionen du hade med ikon + text – låter den vara */
+/* Section lia-info-2 discard? */
 .lia-info-2{
   display:flex;
   justify-content:center;
@@ -400,12 +385,8 @@ body.night .icon-img{
   margin-top:12px;
 }
 
-/* .about-me-p, .visible {
-  margin-top: 0.8rem !important;
-  margin-bottom: ;
-} */
 
-/* Skills-rad */
+/* Skills row */
 .skill-icons{
   display:none;
   padding-bottom:24px;
@@ -422,7 +403,7 @@ body.night .icon-img{
   margin:24px 0 0;
 }
 
-/*  Hero underrad  */
+/*  Hero under row  */
 .project-section{
   padding-top:64px;
   border-top:1px solid var(--line);
@@ -438,7 +419,7 @@ body.night .icon-img{
   color:var(--text);
 }
 
-/* Projektkort */
+/* Project cardt */
 .projects{
   padding:30px 0;
 }
@@ -518,11 +499,13 @@ body.night .icon-img{
 /* Back to top */
 .back-to-top{
   position:fixed;
-  right:20px;
+  right:200px;
   bottom:80px;
   display:none;
   background:var(--text);
-  color:var(--bg);
+  /* background:rgb(249, 52, 151); */
+  /* color:var(--bg); */
+  color:#fafafa;
   border:0;
   width:42px;
   height:42px;
@@ -593,6 +576,12 @@ footer{
 .about-me-container p{
   margin-bottom: 125px;
 }
+
+.back-to-top{
+  /* position:fixed; */
+  right:60px;
+  bottom:80px;
+}
 }
 
 @media (max-width:840px){
@@ -630,7 +619,8 @@ footer{
     grid-template-columns:1fr;
   }
   .skill-icons{
-    content:url('/public/images/skills-box-block-night.svg');
+    /* content:url('/public/images/skills-box-block-night-transparent.svg'); */
+    content:url('/public/images/skills-box-correct.svg');
     width:400px !important;
   }
 }
@@ -652,19 +642,18 @@ footer{
   }
 }
 
-/* Generell bildstil (cross-browser, ersätter tidigare justify-self-regel) */
+/* Generell img style (cross-browser, replace justify-self-regel) */
 img{
   display:block;
   max-width:100%;
   height:auto;
 }
 
-/* ===== LIA CTA (container) ===== */
+/*  LIA CTA (container) */
 .lia-cta{
   margin:24px auto;
   max-width:900px;
   padding:0 16px;
-  /* border: 3px solid green; */
 }
 
 .lia-cta__content{
@@ -672,14 +661,10 @@ img{
   grid-template-columns:1fr auto;
   align-items:center;
   gap:16px;
-  /* background: color-mix(in srgb, var(--card) 90%, var(--text) 10%); */
-  /* background: color-mix(in srgb, var(--card) 20%, var(--text) 5%); */
   background:var(--bg);
-  /* border:1px solid var(--line); */
   border:1px solid #f2f2f2;
   /* border:1px solid #202028; */
   border-radius:12px;
-  /* box-shadow:var(--shadow) 85%; */
   padding:16px 18px;
   /* border: solid salmon 3px; */
 }
@@ -697,7 +682,7 @@ img{
   color:var(--muted);
 }
 
-/* Tillgänglighet – skärmläsare */
+/* 'Accessibility' – "screen reader" */
 .sr-only{
   position:absolute !important;
   width:1px;
@@ -710,25 +695,9 @@ img{
   border:0;
 }
 
-/* ===== HEL SVG-KNAPP ===== */
-/*
-.lia-cta__button{
-  display:block;
-  width:min(100%, 520px);
-  aspect-ratio:800 / 300;
-  background-repeat:no-repeat;
-  background-position:center;
-  background-size:100% 100%;
-  border:0;
-  text-decoration:none;
-  -- border: 2px pink solid;
-  --background-image: url('/public/icons/lia-pdf-button-swe.svg');
-  transition:transform .08s ease, filter .2s ease;
-  outline:none;
-}
-*/
 
-/* KORR: */
+
+/* CORR: */
 .lia-cta__button{
   display:block;
   /* width:min(100%, 520px); */
@@ -745,16 +714,9 @@ img{
   outline:none;
 }
 
-/*
-.lia-cta__button:hover,
-.lia-cta__button:focus-visible{
-  background-image: url('/public/icons/lia-pdf-button-swe-hover.svg');
-  transform: translateY(-1px);
-  width: 48px;
-}
-*/
 
-/* KORR: */
+
+/* cORR: */
 .lia-cta__button:hover,
 .lia-cta__button:focus-visible{
   transform:translateY(-1px);
@@ -782,7 +744,7 @@ body[data-lang="eng"] .lia-cta__button:focus-visible{
   background-image:url('/public/icons/lia-pdf-button-eng.svg');
 }
 
-/* Dark mode: behåll neutral container */
+/* Dark mode: keep neutral container */
 body.night .lia-cta__content{
   /* background: color-mix(in srgb, var(--card) 82%, var(--text) 18%); */
   border-color:var(--line);
@@ -852,3 +814,147 @@ body.night .lia-cta__content{
     letter-spacing:.06em;
   }
 }
+
+
+/*  Tilt cards (mouse control 3D + glans)  */
+.card[data-tilt]{
+  transform-style:preserve-3d;
+  perspective:800px;
+  transition:transform .12s ease;
+  will-change:transform;
+}
+
+.card[data-tilt] .project-img{
+  transform:translateZ(18px);
+  transition:transform .2s ease;
+}
+
+.card[data-tilt]::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:radial-gradient(900px 900px at var(--mx, 50%) var(--my, 50%), color-mix(in srgb, #ffffff 22%, transparent), transparent 60%);
+  opacity:0;
+  transition:opacity .15s ease;
+  mix-blend-mode:screen;
+}
+
+.card[data-tilt].tilting::after{
+  opacity:.28;
+}
+
+
+/*  Magnetic buttons (hover-follow + glow)  */
+.button[data-magnetic]{
+  position:relative;
+  overflow:hidden;
+  will-change:transform;
+}
+
+.button[data-magnetic]::after{
+  content:"";
+  position:absolute;
+  inset:auto -20% -160% -20%;
+  background:radial-gradient(60% 60% at var(--mx, 50%) var(--my, 50%), color-mix(in srgb, var(--text) 12%, transparent), transparent 60%);
+  opacity:0;
+  transform:translateY(0);
+  transition:opacity .2s ease, transform .2s ease;
+  pointer-events:none;
+  mix-blend-mode:soft-light;
+}
+
+.button[data-magnetic].is-hover::after{
+  opacity:.45;
+  transform:translateY(-60%);
+}
+
+/* reduced movment respected */
+@media (prefers-reduced-motion: reduce){
+  .button[data-magnetic]{
+    transition:none;
+  }
+  .button[data-magnetic]::after{
+    transition:none;
+  }
+}
+
+/* Magnetic effect for the lia cta button */
+.lia-cta__button[data-magnetic]{
+  position:relative;
+  overflow:hidden;
+  will-change:transform;
+}
+
+/* Glow that follow the pointer */
+.lia-cta__button[data-magnetic]::after{
+  content:"";
+  position:absolute;
+  inset:auto -30% -160% -30%;
+  background:radial-gradient(60% 60% at var(--mx, 50%) var(--my, 50%), color-mix(in srgb, var(--text) 16%, transparent), transparent 60%);
+  opacity:0;
+  transform:translateY(0);
+  transition:opacity .2s ease, transform .2s ease;
+  pointer-events:none;
+  mix-blend-mode:soft-light;
+}
+
+/* Active hover  */
+.lia-cta__button[data-magnetic].is-hover::after{
+  opacity:.5;
+  transform:translateY(-60%);
+}
+
+/* Important: let JS control transform, not the :hover-rule */
+.lia-cta__button[data-magnetic]:hover,
+.lia-cta__button[data-magnetic]:focus-visible{
+  transform:none;
+}
+
+/* respect less movement */
+@media (prefers-reduced-motion: reduce){
+  .lia-cta__button[data-magnetic]{
+    transition:none;
+  }
+  .lia-cta__button[data-magnetic]::after{
+    transition:none;
+  }
+}
+
+
+
+.back-to-top[data-magnetic]{
+  overflow:hidden;
+  will-change:transform;
+  /* margin-right: 1.5rem; */
+}
+
+.back-to-top[data-magnetic]::after{
+  content:"";
+  position:absolute;
+  inset:auto -40% -200% -40%;
+  background:radial-gradient(60% 60% at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,.35), transparent 60%);
+  opacity:0;
+  transform:translateY(0);
+  transition:opacity .2s ease, transform .2s ease;
+  pointer-events:none;
+  mix-blend-mode:screen;
+  border-radius:50%;
+}
+
+.back-to-top[data-magnetic].is-hover::after{
+  opacity:.6;
+  transform:translateY(-60%);
+}
+
+
+
+@media (prefers-reduced-motion: reduce){
+  .back-to-top[data-magnetic]{
+    transition:none;
+  }
+  .back-to-top[data-magnetic]::after{
+    transition:none;
+  }
+}
+

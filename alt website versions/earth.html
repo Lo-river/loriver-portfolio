@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
+  <title>Portfolio – Lo River Lööf</title>
 
   <link rel="icon" href="./public/images/portfolio-favicon-4.png" type="image/x-icon" />
 
@@ -12,24 +12,33 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Londrina+Outline&family=Londrina+Shadow&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="public/css/styles.css" />
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="earth.css" />
+  <script src="earth.js" defer></script>
 </head>
 <body>
 
   <!-- Progress Scroll  -->
   <div class="progress-bar"></div>
 
+<div class="cursor-blob" aria-hidden="true"></div>
+<div class="film-grain" aria-hidden="true"></div>
+
+  <!-- Animated background layers -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="orb orb-a" aria-hidden="true"></div>
+  <div class="orb orb-b" aria-hidden="true"></div>
+  <div class="orb orb-c" aria-hidden="true"></div>
+
   <header>
     <section class="header-section">
       <!-- Language toggle -->
       <div class="lang-toggle" role="group" aria-label="Language">
-        <button type="button" class="lang-btn" data-lang="swe" data-t="swe">SVE</button>
+        <button type="button" class="lang-btn is-active" data-lang="swe" data-t="swe">SVE</button>
         <span class="sep">/</span>
         <button type="button" class="lang-btn" data-lang="eng" data-t="en">ENG</button>
       </div>
 
-      <nav class="header-nav">
+      <nav class="header-nav" aria-label="Primär">
         <a href="#profile-section" data-t="nav.home">Hem</a>
         <a href="#about" data-t="nav.about">Om mig</a>
         <a href="#projects" data-t="nav.projects">Projekt</a>
@@ -47,23 +56,26 @@
     <!-- Hero / profil split -->
     <section class="profile-section" id="profile-section">
       <div class="profile-content">
-        <h1 class="fade-in">Lo River Lööf</h1>
+        <h1 class="fade-in hero-title kinetic-title">
+            <span class="kinetic-back">Lo River Lööf</span>
+            <span class="kinetic-front" aria-hidden="true">Lo River Lööf</span>
+        </h1>
         <h2 class="fade-in" data-t="hero.title">Frontendutvecklare</h2>
 
         <div class="buttons-row">
-          <a href="/public/files/lo-river-loof-cv.pdf" download="Loriver-CV.pdf" target="_blank">
+          <a href="/public/files/lo-river-loof-cv.pdf" download="Loriver-CV.pdf" target="_blank" class="no-underline">
             <button class="button" data-magnetic data-t="btn.downloadCv">Download CV</button>
           </a>
-          <a href="mailto:loriverinez.loof@yh.nackademin.se">
+          <a href="mailto:loriverinez.loof@yh.nackademin.se" class="no-underline">
             <button class="button" data-magnetic data-t="btn.contactMe">Contact Me</button>
           </a>
         </div>
 
         <div class="social-row">
-          <a class="linkedin-icon" href="https://linkedin.com/in/lo-river-lööf-374615328" target="_blank">
+          <a class="linkedin-icon" href="https://linkedin.com/in/lo-river-lööf-374615328" target="_blank" aria-label="LinkedIn">
             <img src="/public/icons/linkedin-grey.svg" alt="LinkedIn" class="icon-img" />
           </a>
-          <a class="github-icon" href="https://github.com/" target="_blank">
+          <a class="github-icon" href="https://github.com/" target="_blank" aria-label="GitHub">
             <img src="/public/icons/github-grey.svg" alt="GitHub" class="icon-img" />
           </a>
         </div>
@@ -83,23 +95,34 @@
     </section>
 
     <!-- About -->
-    <section id="about">
+    <section id="about" aria-labelledby="about-title">
       <div class="about-me-container">
-        <h3 class="fade-in" data-t="about.heading">Om mig</h3>
-        <p class="fade-in about-text" data-t="about.p1">
-        </p>
-        <p class="fade-in about-text" data-t="about.p2">
-        </p>
-        <p class="fade-in about-text" data-t="about.p3">
-        </p>
+        <h3 id="about-title" class="fade-in" data-t="about.heading">Om mig</h3>
+        <p class="fade-in about-text" data-t="about.p1"></p>
+        <p class="fade-in about-text" data-t="about.p2"></p>
+        <p class="fade-in about-text" data-t="about.p3"></p>
       </div>
     </section>
 
     <!-- Skills row -->
-    <section class="skill-row" >
-      <img class="skill-icons" src="public/images/skills-row-correct.svg" alt="icons of different design and web building apps" />
+    <section class="skill-row" aria-hidden="true">
+      <img class="skill-icons" src="public/images/skills-row-block-night.svg" alt="icons of different design and web building apps" />
     </section>
 
+    <section class="belt marquee" aria-hidden="true">
+        <div class="track">
+            <span>HTML</span>
+            <span>CSS / SCSS</span>
+            <span>JavaScript</span>
+            <span>UX / UI</span>
+            <span>Accessibility</span>
+            <span>React (grunder)</span>
+            <span>Figma</span>
+        </div>
+    </section>
+
+
+    <!-- LIA CTA -->
     <section class="lia-cta" aria-labelledby="lia-cta-title">
       <div class="lia-cta__content">
         <div class="lia-cta__text">
@@ -109,7 +132,7 @@
           <p class="lia-cta__hint" data-t="lia.hint">PDF • 1–2 min läsning</p>
         </div>
 
-        <a class="lia-cta__button"    data-magnetic
+        <a class="lia-cta__button"
            href="/public/files/lia-kit-nackademin.pdf"
            download="LIA-info-Nackademin.pdf"
            target="_blank"
@@ -120,13 +143,13 @@
       </div>
     </section>
 
-    <!-- p.project text under -->
+    <!-- Text över projekt -->
     <section class="project-section">
       <p id="p-project" class="fade-in" data-t="p.project"></p>
     </section>
 
-    <!-- Project section -->
-    <section class="projects" id="projects">
+    <!-- Project sektion -->
+    <section class="projects" id="projects" aria-label="Projekt">
       <div class="card-grid">
         <div class="card" data-tilt>
           <img class="project-img" src="/public/images/groundly_activity_app-3-zoomedout.png" alt="Project Groundly - Activity application" />
@@ -155,7 +178,7 @@
     </section>
 
     <!-- to the top -->
-    <button class="back-to-top" data-magnetic aria-label="Till toppen">⬆︎</button>
+    <button class="back-to-top" aria-label="Till toppen" data-t="backToTop">⬆︎</button>
   </main>
 
   <footer>

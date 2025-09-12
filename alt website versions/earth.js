@@ -24,7 +24,7 @@ function setTheme(mode){ // "light" | "dark"
   localStorage.setItem("theme", isDark ? "dark" : "light");
 
   if(icon){
-    icon.src = isDark ? "public/icons/light-toggle.svg"
+    icon.src = isDark ? "public/icons/dark-toggle.svg"
                       : "public/icons/dark-toggle.svg";
   }
   if(btn){
@@ -49,7 +49,7 @@ const translations = {
     "hero.title":"Frontendutvecklare",
     "btn.downloadCv":"Ladda ner CV",
     "btn.contactMe":"Kontakta mig",
-    "hero.info":`Jag studerar just nu till <strong>Frontendutvecklare</strong> på Nackademin, och nu letar jag efter LIA-/praktikplats
+    "hero.info":`Jag studerar till <strong>Frontendutvecklare</strong> på Nackademin, och nu letar jag efter LIA-/praktikplats
         mellan <strong>2025-12-08 – 2026-04-24.</strong>`,
     "about.heading":"Om mig",
     "about.p1":`Hej! Jag heter Lo River Lööf och studerar just nu till <strong>Frontendutvecklare</strong> på
@@ -64,7 +64,7 @@ const translations = {
     "project.2":`Tamagotchi spel - "Offigotchi"`,
     "project.3":`Quiz App - "Space Quiz"`,
     "cta.try":"<strong>Testa</strong>",
-    "backToTop":"Till toppen"
+    // "backToTop":"Till toppen"
   },
   eng:{
     "nav.home":"Home",
@@ -88,7 +88,7 @@ const translations = {
     "project.2":`Tamagotchi game - "Offigotchi"`,
     "project.3":`Quiz App - "Space Quiz" `,
     "cta.try":"<strong>Try it out</strong>",
-    "backToTop":"Back to top"
+    // "backToTop":"Back to top"
   }
 };
 
@@ -113,14 +113,19 @@ function applyLang(lang){
     btn.classList.toggle("is-active", active);
     btn.setAttribute("aria-pressed", active ? "true" : "false");
   });
+
+  const backBtn = document.querySelector(".back-to-top");
+  if(backBtn && texts["backToTop"]){
+    backBtn.setAttribute("title", texts["backToTop"]);
+    backBtn.setAttribute("aria-label", texts["backToTop"]);
+  }
 }
 
 // Init / DOM ready 
 document.addEventListener("DOMContentLoaded", () => {
-  // Theme
+  // Theme — LIGHT FIRST
   const saved = localStorage.getItem("theme");
-  const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const start = saved || (prefersDark ? "dark" : "light");
+  const start = saved || "light"; // <-- light-first
   setTheme(start);
 
   const themeBtn = document.getElementById("themeToggle");
@@ -151,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Scroll trigger  fade-in
+  // Scroll-trigger fade-in
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -169,82 +174,111 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+/* ========== Earthpeople-lika mikrointeraktioner (vanilla JS) ========== */
 
-
-// Tilt effect on projekt cards (mouse position -> 3D-rotation)
-(function tiltCards(){
-  const cards = document.querySelectorAll('.card[data-tilt]');
-  if(!cards.length) return;
-
-  const maxTilt = 12; // degrees
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  cards.forEach(card => {
-    let leaveTimer;
-
-    const onMove = (e) => {
-      const r = card.getBoundingClientRect();
-      const px = (e.clientX - r.left) / r.width;   // 0..1
-      const py = (e.clientY - r.top) / r.height;   // 0..1
-      const rx = (py - 0.5) * maxTilt;             // x-rotation
-      const ry = (0.5 - px) * maxTilt;             // y-rotation
-
-      card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg)`;
-      card.style.setProperty('--mx', `${px * 100}%`);
-      card.style.setProperty('--my', `${py * 100}%`);
-      card.classList.add('tilting');
-      if(leaveTimer){ clearTimeout(leaveTimer); }
-    };
-
-    const onLeave = () => {
-      // soft go back
-      leaveTimer = setTimeout(() => {
-        card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg)';
-        card.classList.remove('tilting');
-      }, 0);
-    };
-
-    // Skip on touch or if the user prefer less movment
-    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    if(isTouch || prefersReduced) return;
-
-    card.addEventListener('mousemove', onMove, { passive:true });
-    card.addEventListener('mouseleave', onLeave);
-  });
-})();
-
-
-
-
-// Magnetic hover for buttons (CV, Contact, LIA-CTA)
+/* 3.1 Magnetiska knappar (mouse follow inom knapp) */
 (function magneticButtons(){
-  const mags = document.querySelectorAll('.button[data-magnetic], .lia-cta__button[data-magnetic], .back-to-top[data-magnetic]'); // <-- updated
-  if(!mags.length) return;
-
-  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(prefersReduced) return;
-
+  const mags = document.querySelectorAll('.button[data-magnetic]');
   mags.forEach(btn => {
     btn.addEventListener('mousemove', (e) => {
       const r = btn.getBoundingClientRect();
       const x = e.clientX - r.left;
       const y = e.clientY - r.top;
-
       const moveX = (x - r.width / 2) * 0.12;
       const moveY = (y - r.height / 2) * 0.22;
       btn.style.transform = `translate(${moveX}px, ${moveY}px)`;
-
-      btn.style.setProperty('--mx', `${(x / r.width) * 100}%`);
-      btn.style.setProperty('--my', `${(y / r.height) * 100}%`);
-
       btn.classList.add('is-hover');
     });
-
     btn.addEventListener('mouseleave', () => {
       btn.style.transform = 'translate(0,0)';
       btn.classList.remove('is-hover');
-      btn.style.removeProperty('--mx');
-      btn.style.removeProperty('--my');
     });
   });
 })();
+
+/* 3.2 Cursor blob (lerp/inertia) */
+(function cursorBlob(){
+  const blob = document.querySelector('.cursor-blob');
+  if(!blob) return;
+  let x = window.innerWidth * 0.5;
+  let y = window.innerHeight * 0.5;
+  let tx = x;
+  let ty = y;
+  const ease = 0.12;
+  const raf = () => {
+    x += (tx - x) * ease;
+    y += (ty - y) * ease;
+    blob.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    requestAnimationFrame(raf);
+  };
+  window.addEventListener('mousemove', (e) => {
+    tx = e.clientX;
+    ty = e.clientY;
+  }, { passive:true });
+  raf();
+})();
+
+/* 3.3 Tiltade kort + shine (mousemove på kort) */
+(function tiltCards(){
+  const cards = document.querySelectorAll('.card[data-tilt]');
+  const damp = 14;
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width;
+      const py = (e.clientY - r.top) / r.height;
+      const rx = (py - 0.5) * damp;
+      const ry = (0.5 - px) * damp;
+      card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;
+      card.style.setProperty('--mx', `${px * 100}%`);
+      card.style.setProperty('--my', `${py * 100}%`);
+      card.classList.add('tilting');
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg)';
+      card.classList.remove('tilting');
+    });
+  });
+})();
+
+/* 3.4 Marquee – duplicera innehåll så bandet blir sömlöst */
+(function marqueeDup(){
+  const belt = document.querySelector('.belt.marquee .track');
+  if(!belt) return;
+  // upprepa innehållet en gång till för loop
+  const text = Array.from(belt.children).map(n => n.textContent.trim()).filter(Boolean).join('   ');
+  belt.setAttribute('data-dup', '   ' + text + '   ' + text + '   ');
+})();
+
+/* 3.5 Parallax på profilbild vid scroll (subtil) */
+(function parallaxPortrait(){
+  const el = document.querySelector('.profile-img-bg');
+  if(!el) return;
+  const onScroll = () => {
+    const rect = el.getBoundingClientRect();
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    // -1…1 där 0 = center
+    const t = ((rect.top + rect.height * 0.5) - vh * 0.5) / vh;
+    const translate = Math.max(-10, Math.min(10, -t * 18)); // clamp
+    el.style.transform = `translateY(${translate}px)`;
+  };
+  window.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+})();
+
+/* 3.6 Nav underline “magnet” – följ musen per länk */
+(function navUnderline(){
+  const links = document.querySelectorAll('.header-nav a');
+  links.forEach(a => {
+    a.addEventListener('mousemove', (e) => {
+      const r = a.getBoundingClientRect();
+      const x = e.clientX - r.left;
+      a.style.setProperty('--uX', `${x}px`);
+    });
+    a.addEventListener('mouseleave', () => {
+      a.style.removeProperty('--uX');
+    });
+  });
+})();
+
+
